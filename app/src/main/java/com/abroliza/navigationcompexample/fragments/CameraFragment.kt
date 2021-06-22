@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.abroliza.navigationcompexample.R
 import kotlinx.android.synthetic.main.fragment_camera.*
 
@@ -28,7 +29,8 @@ class CameraFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btn_all_photos.setOnClickListener {
             val action = CameraFragmentDirections.nextAction(25)
-            Navigation.findNavController(it).navigate(action)
+//            Navigation.findNavController(it).navigate(action)
+            findNavController().navigate(action)
         }
     }
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.abroliza.navigationcompexample.R
 import kotlinx.android.synthetic.main.fragment_photos.*
 
@@ -29,7 +30,9 @@ class PhotosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_home.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.next_action)
+            val action = PhotosFragmentDirections.nextAction()
+//            Navigation.findNavController(it).navigate(R.id.next_action)
+            findNavController().popBackStack(R.id.destination_home, false)
         }
         arguments?.let {
             val numOfPhotos = PhotosFragmentArgs.fromBundle(it).numOfPhotos
